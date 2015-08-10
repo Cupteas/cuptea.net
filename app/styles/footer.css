@@ -1,0 +1,84 @@
+@charset "utf-8";
+
+.footer .widget {
+    padding-top: 30px;
+    padding-right: 30px;
+}
+
+.footer .widget h4 {
+    font-size: 1.1em;
+    font-weight: 600;
+    line-height: 3em;
+    color: #383838;
+    border-bottom: 1px solid #eee;
+    text-transform: uppercase;
+}
+
+.footer .widget-newsletter .desc {
+    padding-top: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    line-height: 1.8em;
+}
+
+.footer .widget-newsletter form {
+    position: relative;
+    overflow: hidden;
+}
+
+.footer .widget-newsletter .email-input {
+    width: 350px;
+    height: 42px;
+    font-size: 1.1em;
+    line-height: 42px;
+    border: none;
+    background: #f7f8f8;
+    color: #888;
+    padding-left: 15px;
+}
+
+.footer .widget-newsletter .email-submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 78px;
+    height: 42px;
+    line-height: 39px;
+    color: #383838;
+    font-weight: 600;
+    border: none;
+    background: #eff1f1;
+}
+
+.footer .widget-newsletter .email-submit:hover {
+    color: #e15d5d;
+}
+
+.footer .widget ul {
+    padding: 0;
+}
+
+.footer .widget li {
+    line-height: 2.5em;
+}
+
+.footer .widget ul li a {
+    color: #7b7b7b;
+}
+
+.footer .widget ul li a:hover {
+    color: #e15d5d;
+}
+
+.footer .copyright {
+    margin-top: 50px;
+    padding: 30px 0;
+    font-weight: 600;
+    border-top: 1px solid #eee;
+    text-transform: uppercase;
+}
+
+.footer .copyright p {
+    line-height: 2em;
+    margin-bottom: 0;
+}

@@ -1,0 +1,12 @@
+.page-wrap {
+  margin-top: 150px;
+}
+.title {
+  width: 20%;
+  margin: 0 auto;
+  text-align: center;
+  color: #383838;
+}
+h3 {
+  font-size: 1.5rem
+}
