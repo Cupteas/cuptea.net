@@ -1,0 +1,118 @@
+{
+    "status": "ok",
+    "msg": "",
+    "songs": [
+        {
+            "name": "花",
+            "url": "http://m5.file.xiami.com/282/2282/12267/150824_16850302_l.mp3?auth_key=7d3615213f6418ee3b1a08b886d09616-1449936000-0-null",
+            "lrc": "",
+            "artists": "萧潇",
+            "image": "http://p4.music.126.net/kJeuybuAUNtguLfd93toDg==/39582418614545.jpg?param=60y60"
+        },
+        {
+            "name": "小手拉大手",
+            "url": "http://m5.file.xiami.com/836/1836/10061/380246_18781_l.mp3?auth_key=19921690f893ac87c57e5225e99b128a-1449936000-0-null",
+            "lrc": "",
+            "artists": "梁静茹",
+            "image": "http://p4.music.126.net/-qfL1gqOnEIq_UDUObfXOQ==/80264348840422.jpg?param=60y60"
+        },
+        {
+            "name": "小步舞曲",
+            "url": "http://m5.file.xiami.com/414/1414/32423/385018_15815_l.mp3?auth_key=bfc648c0412673746616eda8cc6609b0-1449936000-0-null",
+            "lrc": "",
+            "artists": "陈绮贞",
+            "image": "http://p4.music.126.net/gPQ8FlDpej86aVSSldADLw==/34084860477177.jpg?param=60y60"
+        },
+        {
+            "name": "一样的夏天",
+            "url": "http://m5.file.xiami.com/132/2132/11674/376443_4025946_l.mp3?auth_key=d33c835b2d46cd9859eca62a9139d7fb-1449936000-0-null",
+            "lrc": "",
+            "artists": "孙燕姿",
+            "image": "http://p3.music.126.net/1iSxrDp883wgM6cOOa7m3Q==/118747255800871.jpg?param=60y60"
+        },
+        {
+            "name": "橘子汽水",
+            "url": "http://m5.file.xiami.com/934/2934/15083/375263_20982_l.mp3?auth_key=4a892edf5dafcdd4de306362386c4980-1449936000-0-null",
+            "lrc": "",
+            "artists": "南拳妈妈",
+            "image": "http://p4.music.126.net/oywLgr0Eqw88a4ZTYzCsfQ==/921390744076553.jpg?param=60y60"
+        },
+        {
+            "name": "香草的天空",
+            "url": "http://m5.file.xiami.com/22/3022/33021/394281_10659157_l.mp3?auth_key=a2978e91208550a99d0e9acbbb6c8463-1449936000-0-null",
+            "lrc": "",
+            "artists": "深白色2人组",
+            "image": "http://p3.music.126.net/mQNQ-KC7b_noPoVgCBFlUw==/113249697675983.jpg?param=60y60"
+        },
+        {
+            "name": "Lolita",
+            "url": "http://m5.file.xiami.com/720/1720/9550/118216_38970_l.mp3?auth_key=288c87d1c8537e782af0e11298b50ae4-1449936000-0-null",
+            "lrc": "",
+            "artists": "金海心",
+            "image": "http://p3.music.126.net/ssJbs6QgPKRsw3AodlX-dw==/799344953393473.jpg?param=60y60"
+        },
+        {
+            "name": "遇上爱",
+            "url": "http://m5.file.xiami.com/347/2347/12651/155489_2332416_l.mp3?auth_key=88960b59e54680b288bb77030c977752-1449936000-0-null",
+            "lrc": "",
+            "artists": "杨丞琳",
+            "image": "http://p4.music.126.net/WHKuAfgiy9bU9j0Gcrp0CQ==/5763639952876694.jpg?param=60y60"
+        },
+        {
+            "name": "棉花糖",
+            "url": "http://m5.file.xiami.com/36/56036/307102/3396725_204055_l.mp3?auth_key=d7a7f33e8174b84dc3c0b7d55544cacf-1449936000-0-null",
+            "lrc": "",
+            "artists": "至上励合",
+            "image": "http://p4.music.126.net/kbSg3QRZ9qRLbGCqR70ydQ==/43980465127025.jpg?param=60y60"
+        },
+        {
+            "name": "日光倾城",
+            "url": "http://m5.file.xiami.com/150/7150/32545/387548_29160_l.mp3?auth_key=d93f02099b09d6e2bad9eff2ea3bdad1-1449936000-0-null",
+            "lrc": "",
+            "artists": "卡奇社",
+            "image": "http://p3.music.126.net/3mFT6wgf9AemhGkggCsy1w==/28587302334252.jpg?param=60y60"
+        },
+        {
+            "name": "一起去旅行",
+            "url": "http://m5.file.xiami.com/193/7193/32656/389088_2584451_l.mp3?auth_key=00dac513c2f0afb16851544643d687c3-1449936000-0-null",
+            "lrc": "",
+            "artists": "魏如萱",
+            "image": "http://p4.music.126.net/vfug-4uWZmhe-pBNZ9FLHA==/35184372105639.jpg?param=60y60"
+        },
+        {
+            "name": "坐在巷口的那对男女",
+            "url": "http://m5.file.xiami.com/229/3229/32345/381861_23631_l.mp3?auth_key=a57f6565798969bb0b976160f553efb9-1449936000-0-null",
+            "lrc": "",
+            "artists": "自然卷",
+            "image": "http://p3.music.126.net/tkfy4tbcTiHmYpemLYS-aw==/78065325584894.jpg?param=60y60"
+        },
+        {
+            "name": "遇见我",
+            "url": "http://m5.file.xiami.com/357/1357/32273/378632_15611_l.mp3?auth_key=0c84dcf1384ad340b483a7fd10814481-1449936000-0-null",
+            "lrc": "",
+            "artists": "曹方",
+            "image": "http://p3.music.126.net/2RGGYdTnfG8nL7_SvSLZ9A==/35184372089965.jpg?param=60y60"
+        },
+        {
+            "name": "夏天",
+            "url": "http://m5.file.xiami.com/141/3141/370367/1769392931_1130687_l.mp3?auth_key=f5dadee30e019239d47b341f948bf3d1-1449936000-0-null",
+            "lrc": "",
+            "artists": "熊宝贝乐团",
+            "image": "http://p3.music.126.net/zMf8ztJiMVtcNHZNJI5ezw==/89060441864672.jpg?param=60y60"
+        },
+        {
+            "name": "我们的小世界",
+            "url": "http://m5.file.xiami.com/1/155/7155/319560/3551655_355636_l.mp3?auth_key=b1281229918ded1c09ec8f78a888e69a-1449936000-0-null",
+            "lrc": "",
+            "artists": "彭坦",
+            "image": "http://p3.music.126.net/fYEAM0txCpFVvH44N1bJeg==/72567767446004.jpg?param=60y60"
+        },
+        {
+            "name": "宝贝 (In A Day)",
+            "url": "http://m5.file.xiami.com/139/7139/32527/387345_30453_l.mp3?auth_key=ee77316db52b183db0d78393a6121dcb-1449936000-0-null",
+            "lrc": "",
+            "artists": "张悬",
+            "image": "http://p3.music.126.net/CtF28iQZ-to6kS1AGLXSbg==/117647744185183.jpg?param=60y60"
+        }
+    ]
+}
