@@ -32,6 +32,8 @@ exports.types = {
 
   "wma": "audio/x-ms-wma",
 
-  "wmv": "video/x-ms-wmv"
+  "wmv": "video/x-ms-wmv",
+
+  "mp3": "audio/mpeg"
 
 };

@@ -32,6 +32,8 @@ Asset.prototype.dispatch = function (request, response) {
                     var ext = path.extname(realPath);
                     ext = ext ? ext.slice(1) : 'unknown';
                     var contentType = mime[ext] || "text/plain";
+                    console.log(contentType);
+                    console.log(request.headers["range"]);
                     response.setHeader("Content-Type", contentType);
                     response.setHeader('Content-Length', stats.size);
 

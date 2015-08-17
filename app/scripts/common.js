@@ -1,5 +1,9 @@
 $(document).ready(function() {
-    $('#header').load('../views/tpls/header.html');
+    $('#header').
+      load('../views/tpls/header.html', function(data) {
+        $('#sideBar').sidebar();
+        $('#controlBar').menubar();
+      });
     $('#footer').load('../views/tpls/footer.html');
 
     // 时间轴
@@ -84,119 +88,75 @@ function timeliner() {
     });
 };
 
-;(function() {
-    var Sidebar = function(eId, controlBarId) {
-        var me = this;
-        this.status = 'closed';
-        this.el = document.getElementById(eId || 'sideBar');
-        this.controlBarEl = document.getElementById(controlBarId || 'controlBar');
-        this.controlBarEl.addEventListener('click', function(event) {
-            me.triggerSwitch();
-        });
-    };
-    var Menubar = function() {
-        var me = this;
-        this.status = 'closed';
-        this.submenuList = document.querySelectorAll('#sideBar .item-toggle');
-        this.backItemList = document.querySelectorAll('#sideBar .back-item');
-        for (var i = 0; i < this.submenuList.length; i++) {
-            var $subMenu = this.submenuList[i];
-            $subMenu.addEventListener('click', function() {
-                if (me.status == 'closed') {
-                    this.nextElementSibling.className += ' sub-menu-active';
-                } else {
-                    this.nextElementSibling.className = 'sub-menu';
-                }
-            });
-        }
-        for (var i = 0; i < this.backItemList.length; i++) {
-            var $backItem = this.backItemList[i];
-            $backItem.addEventListener('click', function() {
-                this.parentNode.className = 'sub-menu';
-            });
-        }
-    };
-
-    Sidebar.prototype.open = function() {
+;(function($, window) {
+  var Sidebar = {
+    init: function(options) {
+      var me = this;
+      this.status = 'closed';
+      this.el = document.getElementById($.fn.sidebar.options.sidebar);
+      this.controlBarEl = document.getElementById($.fn.sidebar.options.ctrlbar);
+      this.controlBarEl.addEventListener('click', function(event) {
+          me.triggerSwitch();
+      });
+    },
+    open: function() {
         this.status = 'opened';
         this.el.className += ' nav-menu-active';
         this.controlBarEl.className += ' open-menu-active';
-    };
-    Sidebar.prototype.close = function() {
+    },
+    close: function() {
         this.status = 'closed';
         this.el.className = 'nav-menu';
         this.controlBarEl.className = 'open-menu';
+        var menubar = Object.create(Menubar);
         menubar.init();
-    };
-    Sidebar.prototype.triggerSwitch = function () {
+    },
+    triggerSwitch: function() {
         if (this.status == 'opened') {
             this.close();
         } else {
             this.open();
         }
-    };
-    Menubar.prototype.init = function() {
-        for (var i = 0; i < this.submenuList.length; i++) {
-            var $subMenu = this.submenuList[i];
-            $subMenu.nextElementSibling.className = 'sub-menu';
-        }
-    };
-})();
-
-window.MENU = (function() {
-    function Sidebar() {
-        var me = this;
-        this.status = 'closed';
-        this.el = document.getElementById(eId || 'sideBar');
-        this.controlBarEl = document.getElementById(controlBarId || 'controlBar');
-        this.controlBarEl.addEventListener('click', function(event) {
-            me.triggerSwitch();
-        });
     }
+  }
 
-    function Menubar() {
-        var me = this;
-        this.status = 'closed';
-        this.submenuList = document.querySelectorAll('#sideBar .item-toggle');
-        this.backItemList = document.querySelectorAll('#sideBar .back-item');
-        for (var i = 0; i < this.submenuList.length; i++) {
-            var $subMenu = this.submenuList[i];
-            $subMenu.addEventListener('click', function() {
-                if (me.status == 'closed') {
-                    this.nextElementSibling.className += ' sub-menu-active';
-                } else {
-                    this.nextElementSibling.className = 'sub-menu';
-                }
-            });
-        }
-        for (var i = 0; i < this.backItemList.length; i++) {
-            var $backItem = this.backItemList[i];
-            $backItem.addEventListener('click', function() {
-                this.parentNode.className = 'sub-menu';
-            });
-        }
-    };
+  $.fn.sidebar = function(options) {
+    var sidebar = Object.create(Sidebar);
+    sidebar.init(options);
+  }
 
-    Sidebar.prototype = {
-        open: function() {
-            this.status = 'opened';
-            this.el.className += ' nav-menu-active';
-            this.controlBarEl.className += ' open-menu-active';
-        },
-        close: function() {
-            this.status = 'closed';
-            this.el.className = 'nav-menu';
-            this.controlBarEl.className = 'open-menu';
-            menubar.init();
-        },
-        triggerSwitch: function() {
-            if (this.status == 'opened') {
-                this.close();
-            } else {
-                this.open();
-            }
-        }
+  $.fn.sidebar.options = {
+    sidebar: 'sideBar',
+    ctrlbar: 'controlBar'
+  }
+
+  var Menubar = {
+    init: function() {
+      var me = this;
+      this.status = 'closed';
+      this.submenuList = document.querySelectorAll('#sideBar .item-toggle');
+      this.backItemList = document.querySelectorAll('#sideBar .back-item');
+      for (var i = 0; i < this.submenuList.length; i++) {
+          var $subMenu = this.submenuList[i];
+          $subMenu.addEventListener('click', function() {
+              if (me.status == 'closed') {
+                  this.nextElementSibling.className += ' sub-menu-active';
+              } else {
+                  this.nextElementSibling.className = 'sub-menu';
+              }
+          });
+      }
+      for (var i = 0; i < this.backItemList.length; i++) {
+          var $backItem = this.backItemList[i];
+          $backItem.addEventListener('click', function() {
+              this.parentNode.className = 'sub-menu';
+          });
+      }
     }
+  }
 
-    return Sidebar;
-})();
+  $.fn.menubar = function() {
+    var menubar = Object.create(Menubar);
+    menubar.init();
+  }
+})($, window);
