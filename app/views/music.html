@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1">
+	<meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>音乐 | 杯茶</title>
+	<link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="styles/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<link rel="stylesheet" type="text/css" href="styles/header.css">
+	<link rel="stylesheet" type="text/css" href="styles/footer.css">
+	<link rel="stylesheet" type="text/css" href="styles/index.css">
+	<link rel="stylesheet" type="text/css" href="styles/media.css">
+</head>
+<body>
+  <div id="reloader" class="preloader">
+		<div class="page-loading">
+			<div class="item"></div>
+		</div>
+	</div>
+	<div class="wrap" ng-controller="BlogIndexCtrl">
+		<header id="header" class="header header-responsive" ng-include="header.url">
+
+		</header><!-- /header -->
+
+		<section class="ct-media">
+			<div class="container">
+				<div class="row">
+					<!-- <div class="col-md-5">
+						<div class="player-wrap">
+							<div class="player-inner">
+
+							</div>
+							<div class="player-bar player-header">
+								<h3 class="player-music-title">再见再见</h3>
+								<h3 class="player-full-title">李易峰,蒋劲夫,张云龙 - 再见再见</h3>
+							</div>
+							<div class="player-bar player-footer">
+								<div class="player-control">
+									<a href="javascript:;" class="loop">
+										<i class="fa fa-random"></i>
+									</a>
+									<a href="javascript:;" class="prev">
+										<i class="fa fa-fast-backward"></i>
+									</a>
+									<a href="javascript:;" class="play">
+										<i class="fa fa-play"></i>
+									</a>
+									<a href="javascript:;" class="next">
+										<i class="fa fa-fast-forward"></i>
+									</a>
+									<a href="javascript:;" class="volume">
+										<i class="fa fa-volume-off"></i>
+									</a>
+								</div>
+								<div class="player-progress">
+									<progress value="50" max="100"></progress>
+								</div>
+							</div>
+						</div>
+					</div> -->
+					<div class="col-md-12">
+						<div id="musics" class="musics clear">
+
+						</div>
+				</div>
+			</div>
+		</section>
+
+    <footer id="footer" class="footer" ng-include="footer.url">
+
+    </footer><!-- /footer -->
+  </div>
+  <script type="text/javascript" src="scripts/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+  <script type="text/javascript" src="scripts/owl.carousel.min.js"></script>
+  <script type="text/javascript" src="scripts/common.js"></script>
+	<script type="text/javascript" src="scripts/audio.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$.cupAudio({
+				data: '../data/audio.json',
+				mode: 'list',
+				list: function(options, audio, json) {
+					var html = '';
+					$(json).map(function(i) {
+						html += '<div class="music col-xs-12 col-sm-12 col-md-4 col-lg-4 pr" data-id="' + i + '">';
+						html += '  <div class="body">';
+						html += '    <h4 class="name">' + json[i].name +'</h4>';
+						html += '    <h4 class="singer">' + json[i].artists + '</h4>';
+						html += '    <img src="' + json[i].image + '" alt="" />';
+						html += '  </div>';
+						html += '  <div class="loop">';
+						html += '  </div>';
+						html += '  <div class="scores">';
+						html += '    <span></span>';
+						html += '    <span></span>';
+						html += '    <span></span>';
+						html += '    <span></span>';
+						html += '  </div>';
+						html += '  <div class="control">';
+						html += '    <i class="fa fa-play"></i>';
+						html += '  </div>';
+						html += '</div>';
+					});
+					$('#musics').html(html);
+					$('.loop').find('i').text({'random': '随机', 'list': '顺序', 'repeat': '重复'}[options.mode]);
+				}
+			});
+		});
+	</script>
+</body>
+</html>

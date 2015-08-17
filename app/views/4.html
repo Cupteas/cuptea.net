@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1">
+	<meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>响应式布局</title>
+	<link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="styles/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="styles/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<link rel="stylesheet" type="text/css" href="styles/header.css">
+	<link rel="stylesheet" type="text/css" href="styles/footer.css">
+	<link rel="stylesheet" type="text/css" href="styles/single.css">
+</head>
+<body>
+	<div class="wrap">
+		<header id="header" class="header header-responsive">
+
+		</header><!-- /header -->
+		<section class="featured">
+		</section><!-- /featured -->
+		<div class="blog-content blog-single">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-9">
+						<article class="content">
+							<article class="item">
+								<section class="item-media">
+									<div class="img-wrap">
+										<img src="images/blog/4.jpg" alt="" title="">
+									</div>
+									<div class="item-tag">
+										<a href="#" title="">Travel</a>
+									</div>
+								</section>
+								<section class="item-meta">
+									<div class="item-type">
+										<a href="detail.html" title="">
+											<i class="fa fa-image"></i>
+										</a>
+									</div>
+									<div class="item-date">
+										<span class="year">2015</span>
+										<span class="month">Jul</span>
+										<span class="day">07</span>
+									</div>
+									<div class="item-comment">
+										<i class="fa fa-comment"></i>
+										<a href="#" title="">100</a>
+									</div>
+								</section>
+								<section class="item-body">
+									<div class="item-title">
+										<h1>
+											基于 NodeJS 的前后端分离
+										</h1>
+									</div>
+									<div class="item-entry">
+										<td>
+											<p><font size="4"><b>基于NodeJS的前后端分离</b></font></p>
+											<p style="text-align: center;"><a href="data/attachment/portal/201404/20/200043wvuvstvyvvctczlj.jpg" target="_blank"><img src="data/attachment/portal/201404/20/200043wvuvstvyvvctczlj.jpg"></a></p>
+											<p><font size="4" color="#0000f0"><b>前言</b></font></p>
+											<p>为了解决传统Web开发模式带来的各种问题，我们进行了许多尝试，但由于前/后端的物理鸿沟，尝试的方案都大同小异。痛定思痛，今天我们重新思考了“前后端”的定义，引入前端同学都熟悉的NodeJS，试图探索一条全新的前后端分离模式。</p>
+											<p>随着不同终端(Pad/Mobile/PC)的兴起，对开发人员的要求越来越高，纯浏览器端的响应式已经不能满足用户体验的高要求，我们往往需要针对不同的终端开发定制的版本。为了提升开发效率，前后端分离的需求越来越被重视，后端负责业务/数据接口，前端负责展现/交互逻辑，同一份数据接口，我们可以定制开发多个版本。</p>
+											<p>这个话题最近被讨论得比较多，阿里有些BU也在进行一些尝试。讨论了很久之后，我们团队决定探索一套基于NodeJS的前后端分离方案，过程中有一些不断变化的认识以及思考，记录在这里，也希望看到的同学参与讨论，帮我们完善。</p><p><b><font size="4" color="#0000f0">一、什么是前后端分离？</font></b></p>
+											<p>最开始组内讨论的过程中我发现，每个人对前后端分离的理解不一样，为了保证能在同一个频道讨论，先就什么是”前后端分离”达成一致。</p><p>大家一致认同的前后端分离的例子就是SPA(Single-page application)，所有用到的展现数据都是后端通过异步接口(AJAX/JSONP)的方式提供的，前端只管展现。</p>
+											<p>从某种意义上来说，SPA确实做到了前后端分离，但这种方式存在两个问题：</p>
+											<ul><li>WEB服务中，SPA类占的比例很少。很多场景下还有同步/同步+异步混合的模式，SPA不能作为一种通用的解决方案。</li><li>现阶段的SPA开发模式，接口通常是按照展现逻辑来提供的，有时候为了提高效率，后端会帮我们处理一些展现逻辑，这就意味着后端还是涉足了View层的工作，不是真正的前后端分离。</li></ul><p>SPA式的前后端分离，是从物理层做区分（认为只要是客户端的就是前端，服务器端的就是后端），这种分法已经无法满足我们前后端分离的需求，我们认为从职责上划分才能满足目前我们的使用场景：</p><ul><li>前端：负责View和Controller层。</li><li>后端：只负责Model层，业务处理/数据等。</li></ul><p>为什么去做这种职责的划分，后面会继续探讨。</p><p><b><font size="4" color="#0000f0">二、为什么要前后端分离？</font></b></p><p>关于这个问题，玉伯的文章<a href="https://github.com/lifesinger/lifesinger.github.com/issues/184" target="_blank">Web研发模式演变</a>中解释得非常全面，我们再大概理一下：</p>
+											<p><b>2.1 现有开发模式的适用场景</b></p>
+											<p>玉伯提到的几种开发模式，各有各的适用场景，没有哪一种完全取代另外一种。</p><ul><li>比如后端为主的MVC，做一些同步展现的业务效率很高，但是遇到同步异步结合的页面，与后端开发沟通起来就会比较麻烦。</li><li>Ajax为主SPA型开发模式，比较适合开发APP类型的场景，但是只适合做APP，因为SEO等问题不好解决，对于很多类型的系统，这种开发方式也过重。</li></ul><p><b>2.2 前后端职责不清</b></p><p>在业务逻辑复杂的系统里，我们最怕维护前后端混杂在一起的代码，因为没有约束，M-V-C每一层都可能出现别的层的代码，日积月累，完全没有维护性可言。<br>虽然前后端分离没办法完全解决这种问题，但是可以大大缓解。因为从物理层次上保证了你不可能这么做。</p><p><b>2.3 开发效率问题</b></p>
+											<p>淘宝的Web基本上都是基于MVC框架webx，架构决定了前端只能依赖后端。</p>
+											<p>所以我们的开发模式依然是，前端写好静态demo，后端翻译成VM模版，这种模式的问题就不说了，被吐槽了很久。</p>
+											<p>直接基于后端环境开发也很痛苦，配置安装使用都很麻烦。为了解决这个问题，我们发明了各种工具，比如<a href="https://www.npmjs.org/package/vmarket" target="_blank">VMarket</a>，但是前端还是要写VM，而且依赖后端数据，效率依然不高。</p>
+											<p>另外，后端也没法摆脱对展现的强关注，从而专心于业务逻辑层的开发。</p>
+											<p><b>2.4 对前端发挥的局限</b></p>
+											<p>性能优化如果只在前端做空间非常有限，于是我们经常需要后端合作才能碰撞出火花，但由于后端框架限制，我们很难使用Comet、Bigpipe等技术方案来优化性能。</p>
+											<p>为了解决以上提到的一些问题，我们进行了很多尝试，开发了各种工具，但始终没有太多起色，主要是因为我们只能在后端给我们划分的那一小块空间去发挥。只有真正做到前后端分离，我们才能彻底解决以上问题。</p>
+											<p><b><font size="4" color="#0000f0">三、怎么做前后端分离？</font></b></p>
+											<p>怎么做前后端分离，其实第一节中已经有了答案：</p><ul><li>前端：负责View和Controller层。</li><li>后端：负责Model层，业务处理/数据等。</li></ul><p style="text-align:center;"><img src="data/attachment/portal/201404/20/195645ush5expussasxgm2.png"></p><p>试想一下，如果前端掌握了Controller，我们可以做url design，我们可以根据场景决定在服务端同步渲染，还是根据view层数据输出json数据，我们还可以根据表现层需求很容易的做Bigpipe,Comet,Socket等等，完全是需求决定使用方式。</p><p><b>3.1 基于NodeJS“全栈”式开发</b></p><p>如果想实现上图的分层，就必然需要一种web服务帮我们实现以前后端做的事情，于是就有了标题提到的“基于NodeJS的全栈式开发”</p><p style="text-align:center;"><img src="data/attachment/portal/201404/20/195645xh99x8s8u8388xzi.png"></p><p style="text-align:center;">            </p></td>
+									</div>
+									<div class="item-share">
+										<a href="javascript:;" class="share-toggle">
+											<i class="fa fa-share-alt"></i>
+										</a>
+										<ul class="share">
+											<li class="share-item">
+												<a href="javascript:;" title=""><i class="fa fa-pinterest"></i></a>
+											</li>
+											<li class="share-item">
+												<a href="javascript:;" title=""><i class="fa fa-facebook"></i></a>
+											</li>
+											<li class="share-item">
+												<a href="javascript:;" title=""><i class="fa fa-twitter"></i></a>
+											</li>
+											<li class="share-item">
+												<a href="javascript:;" title=""><i class="fa fa-weixin"></i></a>
+											</li>
+											<li class="share-item">
+												<a href="javascript:;" title=""><i class="fa fa-weibo"></i></a>
+											</li>
+										</ul>
+									</div>
+								</section>
+							</article>
+
+							<article class="author">
+								<h1 class="author-name">Gary Neville</h1>
+								<p class="author-desc">Phasellus facilisis convallis metus, ut imperdiet augue auctor nec. Duis at velit id augue lobortis porta. Sed varius, enim accumsan aliquam tincidunt, tortor urna vulputate quam, eget finibus urna est in augue.</p>
+								<div class="img-wrap">
+									<img class="img-thumb" src="images/author/2.jpg" title="" alt="">
+								</div>
+								<ul class="author-share">
+									<li class="share-item">
+										<a href="javascript:;" title=""><i class="fa fa-pinterest"></i></a>
+									</li>
+									<li class="share-item">
+										<a href="javascript:;" title=""><i class="fa fa-facebook"></i></a>
+									</li>
+									<li class="share-item">
+										<a href="javascript:;" title=""><i class="fa fa-twitter"></i></a>
+									</li>
+									<li class="share-item">
+										<a href="javascript:;" title=""><i class="fa fa-weixin"></i></a>
+									</li>
+									<li class="share-item">
+										<a href="javascript:;" title=""><i class="fa fa-weibo"></i></a>
+									</li>
+								</ul>
+							</article>
+
+							<article class="related">
+								<h1 class="title">Related posts</h1>
+								<div class="row">
+									<div class="col-md-4">
+										<div class="content">
+											<img src="images/1.jpg" alt="" title="">
+											<h3>
+												<a href="#">Ut sit amet massa</a>
+											</h3>
+											<span>Jul 02, 2015</span>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="content">
+											<img src="images/3.jpg" alt="" title="">
+											<h3>
+												<a href="#">Ut sit amet massa</a>
+											</h3>
+											<span>Jul 02, 2015</span>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="content">
+											<img src="images/2.jpg" alt="" title="">
+											<h3>
+												<a href="#">Ut sit amet massa</a>
+											</h3>
+											<span>Jul 02, 2015</span>
+										</div>
+									</div>
+								</div>
+							</article>
+
+							<article class="comments">
+								<h1 class="title">Comments</h1>
+								<article class="comment">
+									<div class="comment-box">
+										<cite class="comment-author">
+											<a href="javascript:;" title="">BlackInterweaves</a>
+										</cite>
+										<div class="comment-date">
+											<time>Jul 09, 2015</time>
+										</div>
+										<p class="comment-body">
+											买！买！买！
+										</p>
+										<div class="comment-operate">
+											<a href="javascript:;" title="">回复</a>
+										</div>
+										<div class="comment-img-wrap">
+											<img src="images/author/2.jpg" title="" alt="">
+										</div>
+									</div>
+									<ul>
+										<li class="comment">
+											<div class="comment-box">
+												<cite class="comment-author">
+													<a href="javascript:;" title="">．·夏已末*</a>
+												</cite>
+												<div class="comment-date">
+													<time>Jul 09, 2015</time>
+												</div>
+												<p class="comment-body">
+													饿。
+												</p>
+												<div class="comment-operate">
+													<a href="javascript:;" title="">回复</a>
+												</div>
+												<div class="comment-img-wrap">
+													<img src="images/author/2.jpg" title="" alt="">
+												</div>
+											</div>
+										</li>
+										<li class="comment">
+											<div class="comment-box">
+												<cite class="comment-author">
+													<a href="javascript:;" title="">喜欢你。</a>
+												</cite>
+												<div class="comment-date">
+													<time>Jul 09, 2015</time>
+												</div>
+												<p class="comment-body">
+													饿。
+												</p>
+												<div class="comment-operate">
+													<a href="javascript:;" title="">回复</a>
+												</div>
+												<div class="comment-img-wrap">
+													<img src="images/author/2.jpg" title="" alt="">
+												</div>
+											</div>
+										</li>
+									</ul>
+								</article>
+
+								<article class="comment">
+									<div class="comment-box">
+										<cite class="comment-author">
+											<a href="javascript:;" title="">BlackInterweaves</a>
+										</cite>
+										<div class="comment-date">
+											<time>Jul 09, 2015</time>
+										</div>
+										<p class="comment-body">
+											买！买！买！
+										</p>
+										<div class="comment-operate">
+											<a href="javascript:;" title="">回复</a>
+										</div>
+										<div class="comment-img-wrap">
+											<img src="images/author/2.jpg" title="" alt="">
+										</div>
+									</div>
+									<ul>
+										<li class="comment">
+											<div class="comment-box">
+												<cite class="comment-author">
+													<a href="javascript:;" title="">．·夏已末*</a>
+												</cite>
+												<div class="comment-date">
+													<time>Jul 09, 2015</time>
+												</div>
+												<p class="comment-body">
+													饿。
+												</p>
+												<div class="comment-operate">
+													<a href="javascript:;" title="">回复</a>
+												</div>
+												<div class="comment-img-wrap">
+													<img src="images/author/2.jpg" title="" alt="">
+												</div>
+											</div>
+										</li>
+										<li class="comment">
+											<div class="comment-box">
+												<cite class="comment-author">
+													<a href="javascript:;" title="">喜欢你。</a>
+												</cite>
+												<div class="comment-date">
+													<time>Jul 09, 2015</time>
+												</div>
+												<p class="comment-body">
+													饿。
+												</p>
+												<div class="comment-operate">
+													<a href="javascript:;" title="">回复</a>
+												</div>
+												<div class="comment-img-wrap">
+													<img src="images/author/2.jpg" title="" alt="">
+												</div>
+											</div>
+										</li>
+									</ul>
+								</article>
+							</article>
+
+							<article class="response">
+								<h1 class="title">Leaver your comment</h1>
+								<form action="" method="" spellcheck="false">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-item form-name">
+												<input type="text" placeholder="昵称" autocomplete="off">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-item form-email">
+												<input type="text" placeholder="邮箱" autocomplete="off">
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-item form-content">
+												<textarea placeholder="说点什么.."></textarea>
+											</div>
+										</div>
+										<div class="col-md-2">
+											<div class="form-item form-submit">
+												<input type="submit" value="提交">
+											</div>
+										</div>
+									</div>
+								</form>
+							</article>
+						</article>
+					</div>
+					<div class="col-md-3">
+						<article class="aside">
+							<aside class="widget latest">
+								<h1 class="title">Latest post</h1>
+								<ul>
+									<li class="item">
+										<h2 class="item-title">
+											<a href="single.html" title="">宝马 I8 新变种：氢燃料电池版，零排放零污染</a>
+										</h2>
+										<div class="item-date">
+											<time>Jul 07, 2015</time>
+										</div>
+										<div class="item-img-wrap">
+											<img src="images/latest/1.jpg">
+										</div>
+									</li>
+									<li class="item">
+										<h2 class="item-title">
+											<a href="single.html" title="">宝马 I8 新变种：氢燃料电池版，零排放零污染</a>
+										</h2>
+										<div class="item-date">
+											<time>Jul 07, 2015</time>
+										</div>
+										<div class="item-img-wrap">
+											<img src="images/latest/1.jpg">
+										</div>
+									</li>
+									<li class="item">
+										<h2 class="item-title">
+											<a href="single.html" title="">宝马 I8 新变种：氢燃料电池版，零排放零污染</a>
+										</h2>
+										<div class="item-date">
+											<time>Jul 07, 2015</time>
+										</div>
+										<div class="item-img-wrap">
+											<img src="images/latest/1.jpg">
+										</div>
+									</li>
+								</ul>
+							</aside>
+
+							<aside class="widget category">
+								<h1 class="title">Categories</h1>
+								<ul>
+									<li class="item">
+										<a href="#" title="">Music</a>
+									</li>
+									<li class="item">
+										<a href="#" title="">Travel</a>
+									</li>
+									<li class="item">
+										<a href="#" title="">Restaurant</a>
+									</li>
+									<li class="item">
+										<a href="#" title="">Lifestyle</a>
+									</li>
+								</ul>
+							</aside>
+
+							<aside class="widget flickr">
+								<h1 class="title">Flickr</h1>
+								<ul class="clear">
+									<li class="item">
+										<a href="#" title="">
+											<img src="images/flickr/1.jpg" title="" alt="">
+										</a>
+									</li>
+									<li class="item">
+										<a href="#" title="">
+											<img src="images/flickr/2.jpg" title="" alt="">
+										</a>
+									</li>
+									<li class="item">
+										<a href="#" title="">
+											<img src="images/flickr/3.jpg" title="" alt="">
+										</a>
+									</li>
+									<li class="item">
+										<a href="#" title="">
+											<img src="images/flickr/4.jpg" title="" alt="">
+										</a>
+									</li>
+									<li class="item">
+										<a href="#" title="">
+											<img src="images/flickr/5.jpg" title="" alt="">
+										</a>
+									</li>
+									<li class="item">
+										<a href="#" title="">
+											<img src="images/flickr/6.jpg" title="" alt="">
+										</a>
+									</li>
+									<li class="item">
+										<a href="#" title="">
+											<img src="images/flickr/7.jpg" title="" alt="">
+										</a>
+									</li>
+									<li class="item">
+										<a href="#" title="">
+											<img src="images/flickr/8.jpg" title="" alt="">
+										</a>
+									</li>
+									<li class="item">
+										<a href="#" title="">
+											<img src="images/flickr/9.jpg" title="" alt="">
+										</a>
+									</li>
+								</ul>
+							</aside>
+
+							<aside class="widget calendar">
+								<div class="calendar-wrap">
+									<table>
+										<caption>
+											<a href="javascript:;" title="">七月</a>
+											<a href="javascript:;" title="">2015</a>
+										</caption>
+										<thead>
+										<tr>
+											<th>日</th>
+											<th>一</th>
+											<th>二</th>
+											<th>三</th>
+											<th>四</th>
+											<th>五</th>
+											<th>六</th>
+										</tr>
+										</thead>
+										<tbody>
+										<tr>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td>1</td>
+											<td>2</td>
+											<td>3</td>
+											<td>4</td>
+										</tr>
+										<tr>
+											<td>5</td>
+											<td>6</td>
+											<td>7</td>
+											<td>8</td>
+											<td>9</td>
+											<td class="active">10</td>
+											<td>11</td>
+										</tr>
+										<tr>
+											<td>12</td>
+											<td>13</td>
+											<td>14</td>
+											<td>15</td>
+											<td>16</td>
+											<td>17</td>
+											<td>18</td>
+										</tr>
+										<tr>
+											<td>19</td>
+											<td>20</td>
+											<td>21</td>
+											<td>22</td>
+											<td>23</td>
+											<td>24</td>
+											<td>25</td>
+										</tr>
+										<tr>
+											<td>26</td>
+											<td>27</td>
+											<td>28</td>
+											<td>29</td>
+											<td>30</td>
+											<td>31</td>
+											<td></td>
+										</tr>
+										</tbody>
+									</table>
+								</div>
+							</aside>
+
+							<aside class="widget tag">
+								<h1 class="title">Tag Cloud</h1>
+								<div class="tag-wrap">
+									<a href="javascript:;" title="">宝马</a>
+									<a href="javascript:;" title="">宝马 5 系</a>
+									<a href="javascript:;" title="">小清新</a>
+									<a href="javascript:;" title="">传播</a>
+									<a href="javascript:;" title="">微博大号</a>
+									<a href="javascript:;" title="">新西兰</a>
+									<a href="javascript:;" title="">网络欺凌</a>
+									<a href="javascript:;" title="">IOS</a>
+									<a href="javascript:;" title="">Apple</a>
+									<a href="javascript:;" title="">Nest</a>
+								</div>
+							</aside>
+						</article>
+					</div>
+				</div>
+			</div>
+		</div><!-- /content -->
+		<footer id="footer" class="footer">
+
+		</footer><!-- /footer -->
+	</div>
+
+	<script type="text/javascript" src="scripts/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+	<script type="text/javascript" src="scripts/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="scripts/common.js"></script>
+</body>
+</html>

@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1">
+	<meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>响应式布局</title>
+	<link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="styles/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="styles/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<link rel="stylesheet" type="text/css" href="styles/header.css">
+	<link rel="stylesheet" type="text/css" href="styles/footer.css">
+	<link rel="stylesheet" type="text/css" href="styles/single.css">
+</head>
+<body>
+	<div class="wrap">
+		<header id="header" class="header header-responsive">
+
+		</header><!-- /header -->
+		<section class="featured">
+		</section><!-- /featured -->
+		<div class="blog-content blog-single">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-9">
+						<article class="content">
+							<article class="item">
+								<section class="item-media">
+									<div class="img-wrap">
+										<img src="images/blog/3.jpg" alt="" title="">
+									</div>
+									<div class="item-tag">
+										<a href="#" title="">Travel</a>
+									</div>
+								</section>
+								<section class="item-meta">
+									<div class="item-type">
+										<a href="javascript:;" title="">
+											<i class="fa fa-image"></i>
+										</a>
+									</div>
+									<div class="item-date">
+										<span class="year">2015</span>
+										<span class="month">Jul</span>
+										<span class="day">07</span>
+									</div>
+									<div class="item-comment">
+										<i class="fa fa-comment"></i>
+										<a href="#" title="">100</a>
+									</div>
+								</section>
+								<section class="item-body">
+									<div class="item-title">
+										<h1>
+											社交网络悖论：你眼中的流行未必流行
+										</h1>
+									</div>
+									<div class="item-entry">
+										<p>每天，微博/微信上一些话题都会营造一种“人人都在转”的感觉，所谓热门。但这些话题真的有那么流行吗？<a href="http://www.technologyreview.com/view/538866/the-social-network-illusion-that-tricks-your-mind/">据 MIT Technology Review 报道</a>，美国南加州大学的 Kristina Lerman 发现看上去很流行的话题可能并不那么流行，导致这种差异的就是人常有的一种错觉——“多数错觉”（majority illusion）。</p>
+										<p><span id="more-537721"></span></p>
+										<h3>为什么别人的好友比你多</h3>
+										<p>“零除以零等于几？”几天前 Siri 回答的这道数学题火了：</p>
+										<blockquote><p>想象你有零块曲奇，要分给零个朋友，这根本说不通。曲奇怪（卡通人物）很难过，因为他没有曲奇；你也难过，因为你没有朋友。</p></blockquote>
+										<p>调戏 Siri 反遭损，这时你打开社交网络 app，发现别人的好友/粉丝都比你多，回头与 Siri 相拥而泣。“平均来看，别人的好友比都比我多”就是社交网络中最常见的错觉。</p>
+										<p>我们在评估别人好友数量时，不自觉地采用了“平均数”这个指标，而错觉就来自于此。社交网络上的大多数用户都拥有较少的好友数，少数的名人则拥有大量的关注和好友，这样一来平均线被名人大幅拉高，多数人随之落入了平均线下方。</p>
+										<p>每个人的儿时经历中，或多或少听过这句烦人的话：“别人家的孩子XXX”。其实父母在说这句话的时候也陷入了类似的错觉，大多数孩子都是很普通的，但极少数的出色拉高了平均值，因此似乎自己的孩子总是不够好。</p>
+										<h3>“多数错觉”</h3>
+										<p>Lerman 团队的新发现是与“平均数悖论”相关的一个悖论，他们称之为“多数错觉”。“多数错觉”描述的现象是，你在社交网络上看到许多朋友都在做某件事，即使在整个网络上那种行为并不普遍。</p>
+										<p><a href="http://images.ifanr.cn/wp-content/uploads/2015/07/Majority-illussion.jpg" rel="lightbox[537721]"><img class="aligncenter size-full wp-image-537733" src="http://images.ifanr.cn/wp-content/uploads/2015/07/Majority-illussion.jpg" alt="Majority illussion" width="750" height="442"></a></p>
+										<p>上图中的 14 个点代表了一个微型的社交网络，连接圆点的直线代表“好友”关系，红色圆点则代表了社交网络上的一种行为，如“使用真实头像”。左图中，大部分人都看到了红色邻居，因此认为大部分人都在用真实头像，右图中多数人则认为没什么人用真实头像。真相是，两张图中，使用真实头像的都只有 3 个人，约总数的 21%。</p>
+										<blockquote><p>在某些情况下，即使少数派观点也能够在一定范围内极度流行。</p></blockquote>
+										<p>两张图的红色圆点数量相同，社交结构相同，而大众感知的流行度完全不同。原因也是显而易见，“人脉广”的人的一举一动看起来更流行。</p>
+										<h3>错觉带来的影响</h3>
+										<p>为了理解多数错觉对真实世界的影响，Lerman 团队对不同的社区进行了研究，发现政治博客中这种效应尤为明显——即使只有 20% 的节点被激活，60%-70% 的节点会拥有一个活跃的邻居。</p>
+										<p>因此，微博上多如繁星的“美女面膜代言人”也就不足为怪，商家从大号开始推广，哪怕数量不多，也能营造一种“她们都在用”的错觉。这种垃圾信息虽然烦人但尚属无害，另有一些信息可能造成更大的危害，例如受社交媒体影响，美国大部分青少年都高估了朋友们喝酒和吸毒的量。这种错觉还可能被应用于别用有心的目的，不妨自由联想，注意甄别。</p>
+										<p>图片来自<a href="http://hellorf.com">站酷海洛创意</a>、<a href="http://www.technologyreview.com/view/538866/the-social-network-illusion-that-tricks-your-mind/">MIT Technology Review</a></p>
+									</div>
+									<div class="item-share">
+										<a href="javascript:;" class="share-toggle">
+											<i class="fa fa-share-alt"></i>
+										</a>
+										<ul class="share">
+											<li class="share-item">
+												<a href="javascript:;" title=""><i class="fa fa-pinterest"></i></a>
+											</li>
+											<li class="share-item">
+												<a href="javascript:;" title=""><i class="fa fa-facebook"></i></a>
+											</li>
+											<li class="share-item">
+												<a href="javascript:;" title=""><i class="fa fa-twitter"></i></a>
+											</li>
+											<li class="share-item">
+												<a href="javascript:;" title=""><i class="fa fa-weixin"></i></a>
+											</li>
+											<li class="share-item">
+												<a href="javascript:;" title=""><i class="fa fa-weibo"></i></a>
+											</li>
+										</ul>
+									</div>
+								</section>
+							</article>
+
+							<article class="author">
+								<h1 class="author-name">Gary Neville</h1>
+								<p class="author-desc">Phasellus facilisis convallis metus, ut imperdiet augue auctor nec. Duis at velit id augue lobortis porta. Sed varius, enim accumsan aliquam tincidunt, tortor urna vulputate quam, eget finibus urna est in augue.</p>
+								<div class="img-wrap">
+									<img class="img-thumb" src="images/author/2.jpg" title="" alt="">
+								</div>
+								<ul class="author-share">
+									<li class="share-item">
+										<a href="javascript:;" title=""><i class="fa fa-pinterest"></i></a>
+									</li>
+									<li class="share-item">
+										<a href="javascript:;" title=""><i class="fa fa-facebook"></i></a>
+									</li>
+									<li class="share-item">
+										<a href="javascript:;" title=""><i class="fa fa-twitter"></i></a>
+									</li>
+									<li class="share-item">
+										<a href="javascript:;" title=""><i class="fa fa-weixin"></i></a>
+									</li>
+									<li class="share-item">
+										<a href="javascript:;" title=""><i class="fa fa-weibo"></i></a>
+									</li>
+								</ul>
+							</article>
+
+							<article class="related">
+								<h1 class="title">Related posts</h1>
+								<div class="row">
+									<div class="col-md-4">
+										<div class="content">
+											<img src="images/1.jpg" alt="" title="">
+											<h3>
+												<a href="#">Ut sit amet massa</a>
+											</h3>
+											<span>Jul 02, 2015</span>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="content">
+											<img src="images/3.jpg" alt="" title="">
+											<h3>
+												<a href="#">Ut sit amet massa</a>
+											</h3>
+											<span>Jul 02, 2015</span>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="content">
+											<img src="images/2.jpg" alt="" title="">
+											<h3>
+												<a href="#">Ut sit amet massa</a>
+											</h3>
+											<span>Jul 02, 2015</span>
+										</div>
+									</div>
+								</div>
+							</article>
+
+							<article class="comments">
+								<h1 class="title">Comments</h1>
+								<article class="comment">
+									<div class="comment-box">
+										<cite class="comment-author">
+											<a href="javascript:;" title="">BlackInterweaves</a>
+										</cite>
+										<div class="comment-date">
+											<time>Jul 09, 2015</time>
+										</div>
+										<p class="comment-body">
+											买！买！买！
+										</p>
+										<div class="comment-operate">
+											<a href="javascript:;" title="">回复</a>
+										</div>
+										<div class="comment-img-wrap">
+											<img src="images/author/2.jpg" title="" alt="">
+										</div>
+									</div>
+									<ul>
+										<li class="comment">
+											<div class="comment-box">
+												<cite class="comment-author">
+													<a href="javascript:;" title="">．·夏已末*</a>
+												</cite>
+												<div class="comment-date">
+													<time>Jul 09, 2015</time>
+												</div>
+												<p class="comment-body">
+													饿。
+												</p>
+												<div class="comment-operate">
+													<a href="javascript:;" title="">回复</a>
+												</div>
+												<div class="comment-img-wrap">
+													<img src="images/author/2.jpg" title="" alt="">
+												</div>
+											</div>
+										</li>
+										<li class="comment">
+											<div class="comment-box">
+												<cite class="comment-author">
+													<a href="javascript:;" title="">喜欢你。</a>
+												</cite>
+												<div class="comment-date">
+													<time>Jul 09, 2015</time>
+												</div>
+												<p class="comment-body">
+													饿。
+												</p>
+												<div class="comment-operate">
+													<a href="javascript:;" title="">回复</a>
+												</div>
+												<div class="comment-img-wrap">
+													<img src="images/author/2.jpg" title="" alt="">
+												</div>
+											</div>
+										</li>
+									</ul>
+								</article>
+
+								<article class="comment">
+									<div class="comment-box">
+										<cite class="comment-author">
+											<a href="javascript:;" title="">BlackInterweaves</a>
+										</cite>
+										<div class="comment-date">
+											<time>Jul 09, 2015</time>
+										</div>
+										<p class="comment-body">
+											买！买！买！
+										</p>
+										<div class="comment-operate">
+											<a href="javascript:;" title="">回复</a>
+										</div>
+										<div class="comment-img-wrap">
+											<img src="images/author/2.jpg" title="" alt="">
+										</div>
+									</div>
+									<ul>
+										<li class="comment">
+											<div class="comment-box">
+												<cite class="comment-author">
+													<a href="javascript:;" title="">．·夏已末*</a>
+												</cite>
+												<div class="comment-date">
+													<time>Jul 09, 2015</time>
+												</div>
+												<p class="comment-body">
+													饿。
+												</p>
+												<div class="comment-operate">
+													<a href="javascript:;" title="">回复</a>
+												</div>
+												<div class="comment-img-wrap">
+													<img src="images/author/2.jpg" title="" alt="">
+												</div>
+											</div>
+										</li>
+										<li class="comment">
+											<div class="comment-box">
+												<cite class="comment-author">
+													<a href="javascript:;" title="">喜欢你。</a>
+												</cite>
+												<div class="comment-date">
+													<time>Jul 09, 2015</time>
+												</div>
+												<p class="comment-body">
+													饿。
+												</p>
+												<div class="comment-operate">
+													<a href="javascript:;" title="">回复</a>
+												</div>
+												<div class="comment-img-wrap">
+													<img src="images/author/2.jpg" title="" alt="">
+												</div>
+											</div>
+										</li>
+									</ul>
+								</article>
+							</article>
+
+							<article class="response">
+								<h1 class="title">Leaver your comment</h1>
+								<form action="" method="" spellcheck="false">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-item form-name">
+												<input type="text" placeholder="昵称" autocomplete="off">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-item form-email">
+												<input type="text" placeholder="邮箱" autocomplete="off">
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-item form-content">
+												<textarea placeholder="说点什么.."></textarea>
+											</div>
+										</div>
+										<div class="col-md-2">
+											<div class="form-item form-submit">
+												<input type="submit" value="提交">
+											</div>
+										</div>
+									</div>
+								</form>
+							</article>
+						</article>
+					</div>
+					<div class="col-md-3">
+						<article class="aside">
+							<aside class="widget latest">
+								<h1 class="title">Latest post</h1>
+								<ul>
+									<li class="item">
+										<h2 class="item-title">
+											<a href="single.html" title="">宝马 I8 新变种：氢燃料电池版，零排放零污染</a>
+										</h2>
+										<div class="item-date">
+											<time>Jul 07, 2015</time>
+										</div>
+										<div class="item-img-wrap">
+											<img src="images/latest/1.jpg">
+										</div>
+									</li>
+									<li class="item">
+										<h2 class="item-title">
+											<a href="single.html" title="">宝马 I8 新变种：氢燃料电池版，零排放零污染</a>
+										</h2>
+										<div class="item-date">
+											<time>Jul 07, 2015</time>
+										</div>
+										<div class="item-img-wrap">
+											<img src="images/latest/1.jpg">
+										</div>
+									</li>
+									<li class="item">
+										<h2 class="item-title">
+											<a href="single.html" title="">宝马 I8 新变种：氢燃料电池版，零排放零污染</a>
+										</h2>
+										<div class="item-date">
+											<time>Jul 07, 2015</time>
+										</div>
+										<div class="item-img-wrap">
+											<img src="images/latest/1.jpg">
+										</div>
+									</li>
+								</ul>
+							</aside>
+
+							<aside class="widget category">
+								<h1 class="title">Categories</h1>
+								<ul>
+									<li class="item">
+										<a href="#" title="">Music</a>
+									</li>
+									<li class="item">
+										<a href="#" title="">Travel</a>
+									</li>
+									<li class="item">
+										<a href="#" title="">Restaurant</a>
+									</li>
+									<li class="item">
+										<a href="#" title="">Lifestyle</a>
+									</li>
+								</ul>
+							</aside>
+
+							<aside class="widget flickr">
+								<h1 class="title">Flickr</h1>
+								<ul class="clear">
+									<li class="item">
+										<a href="#" title="">
+											<img src="images/flickr/1.jpg" title="" alt="">
+										</a>
+									</li>
+									<li class="item">
+										<a href="#" title="">
+											<img src="images/flickr/2.jpg" title="" alt="">
+										</a>
+									</li>
+									<li class="item">
+										<a href="#" title="">
+											<img src="images/flickr/3.jpg" title="" alt="">
+										</a>
+									</li>
+									<li class="item">
+										<a href="#" title="">
+											<img src="images/flickr/4.jpg" title="" alt="">
+										</a>
+									</li>
+									<li class="item">
+										<a href="#" title="">
+											<img src="images/flickr/5.jpg" title="" alt="">
+										</a>
+									</li>
+									<li class="item">
+										<a href="#" title="">
+											<img src="images/flickr/6.jpg" title="" alt="">
+										</a>
+									</li>
+									<li class="item">
+										<a href="#" title="">
+											<img src="images/flickr/7.jpg" title="" alt="">
+										</a>
+									</li>
+									<li class="item">
+										<a href="#" title="">
+											<img src="images/flickr/8.jpg" title="" alt="">
+										</a>
+									</li>
+									<li class="item">
+										<a href="#" title="">
+											<img src="images/flickr/9.jpg" title="" alt="">
+										</a>
+									</li>
+								</ul>
+							</aside>
+
+							<aside class="widget calendar">
+								<div class="calendar-wrap">
+									<table>
+										<caption>
+											<a href="javascript:;" title="">七月</a>
+											<a href="javascript:;" title="">2015</a>
+										</caption>
+										<thead>
+										<tr>
+											<th>日</th>
+											<th>一</th>
+											<th>二</th>
+											<th>三</th>
+											<th>四</th>
+											<th>五</th>
+											<th>六</th>
+										</tr>
+										</thead>
+										<tbody>
+										<tr>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td>1</td>
+											<td>2</td>
+											<td>3</td>
+											<td>4</td>
+										</tr>
+										<tr>
+											<td>5</td>
+											<td>6</td>
+											<td>7</td>
+											<td>8</td>
+											<td>9</td>
+											<td class="active">10</td>
+											<td>11</td>
+										</tr>
+										<tr>
+											<td>12</td>
+											<td>13</td>
+											<td>14</td>
+											<td>15</td>
+											<td>16</td>
+											<td>17</td>
+											<td>18</td>
+										</tr>
+										<tr>
+											<td>19</td>
+											<td>20</td>
+											<td>21</td>
+											<td>22</td>
+											<td>23</td>
+											<td>24</td>
+											<td>25</td>
+										</tr>
+										<tr>
+											<td>26</td>
+											<td>27</td>
+											<td>28</td>
+											<td>29</td>
+											<td>30</td>
+											<td>31</td>
+											<td></td>
+										</tr>
+										</tbody>
+									</table>
+								</div>
+							</aside>
+
+							<aside class="widget tag">
+								<h1 class="title">Tag Cloud</h1>
+								<div class="tag-wrap">
+									<a href="javascript:;" title="">宝马</a>
+									<a href="javascript:;" title="">宝马 5 系</a>
+									<a href="javascript:;" title="">小清新</a>
+									<a href="javascript:;" title="">传播</a>
+									<a href="javascript:;" title="">微博大号</a>
+									<a href="javascript:;" title="">新西兰</a>
+									<a href="javascript:;" title="">网络欺凌</a>
+									<a href="javascript:;" title="">IOS</a>
+									<a href="javascript:;" title="">Apple</a>
+									<a href="javascript:;" title="">Nest</a>
+								</div>
+							</aside>
+						</article>
+					</div>
+				</div>
+			</div>
+		</div><!-- /content -->
+		<footer id="footer" class="footer">
+
+		</footer><!-- /footer -->
+	</div>
+
+	<script type="text/javascript" src="scripts/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+	<script type="text/javascript" src="scripts/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="scripts/common.js"></script>
+</body>
+</html>
